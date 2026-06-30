@@ -214,6 +214,117 @@
       line-height: 1.6;
     }
 
+    /* ─── INDICATORI RAP ─── */
+    .rap-section {
+      background: var(--dark);
+      padding: 64px 0 0;
+      color: var(--white);
+    }
+
+    .rap-section .section-label { color: var(--teal); }
+    .rap-section .section-title { color: var(--white); }
+
+    .rap-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+      margin: 36px 0 0;
+    }
+
+    .rap-kpi {
+      background: var(--dark);
+      padding: 36px 28px;
+      text-align: center;
+      border-top: 3px solid transparent;
+    }
+
+    .rap-kpi:nth-child(1) { border-top-color: var(--teal); }
+    .rap-kpi:nth-child(2) { border-top-color: var(--blue); }
+    .rap-kpi:nth-child(3) { border-top-color: var(--teal); }
+
+    .rap-kpi-value {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 900;
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: 10px;
+      letter-spacing: -1px;
+    }
+
+    .rap-kpi-value.accent { color: var(--teal); }
+    .rap-kpi-value.accent2 { color: #2468F6; }
+
+    .rap-kpi-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-weight: 500;
+    }
+
+    .rap-kpi-sub {
+      font-size: 11px;
+      color: rgba(255,255,255,0.3);
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    .env-strip {
+      background: linear-gradient(90deg, #060f24 0%, #082a1e 50%, #060f24 100%);
+      border-top: 1px solid rgba(29, 212, 176, 0.15);
+      margin-top: 1px;
+      padding: 32px 24px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+
+    .env-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 16px 28px;
+      border-right: 1px solid rgba(255,255,255,0.07);
+      min-width: 140px;
+    }
+
+    .env-item:last-child { border-right: none; }
+
+    .env-value {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--teal);
+      letter-spacing: -0.5px;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .env-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.4;
+      max-width: 100px;
+    }
+
+    .rap-note {
+      text-align: center;
+      font-size: 11px;
+      color: rgba(255,255,255,0.25);
+      padding: 16px 24px 0;
+      letter-spacing: 0.3px;
+    }
+
+    @media (max-width: 640px) {
+      .rap-kpi-grid { grid-template-columns: 1fr; }
+      .env-strip { flex-direction: column; align-items: center; }
+      .env-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); width: 100%; }
+      .env-item:last-child { border-bottom: none; }
+    }
+
     /* ─── SAVINGS NUMBERS ─── */
     .savings-section {
       background: var(--light-gray);
@@ -453,6 +564,140 @@
 
     .footer a { color: var(--teal); text-decoration: none; }
 
+    /* ─── SCROLL FADE-IN ─── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ─── CALCOLATORE ─── */
+    .calc-section {
+      background: var(--white);
+      padding: 64px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .calc-box {
+      background: var(--light-gray);
+      border-radius: 6px;
+      padding: 36px 32px;
+      margin-top: 32px;
+    }
+
+    .calc-label-input {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 10px;
+      letter-spacing: 0.2px;
+    }
+
+    .calc-input-wrap {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .calc-input {
+      flex: 1;
+      min-width: 200px;
+      padding: 14px 18px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--dark);
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: 4px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .calc-input:focus { border-color: var(--blue); }
+
+    .calc-input::placeholder { color: #bbb; font-weight: 400; font-size: 15px; }
+
+    .calc-btn {
+      padding: 14px 32px;
+      background: var(--grad-btn);
+      color: var(--white);
+      border: none;
+      border-radius: 4px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+
+    .calc-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    .calc-hint {
+      font-size: 11px;
+      color: var(--gray);
+      margin-top: 8px;
+    }
+
+    .calc-results {
+      display: none;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 28px;
+    }
+
+    .calc-result-box {
+      background: var(--white);
+      padding: 28px 20px;
+      text-align: center;
+      border-top: 3px solid var(--border);
+      transition: border-color 0.3s;
+    }
+
+    .calc-result-box.active-7  { border-top-color: var(--teal); }
+    .calc-result-box.active-10 { border-top-color: var(--blue); }
+    .calc-result-box.active-20 { border-top-color: #1850D8; }
+
+    .calc-pct {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--gray);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .calc-saving {
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 900;
+      background: var(--grad-btn);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+    }
+
+    .calc-scenario {
+      font-size: 11px;
+      color: var(--gray);
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    .calc-cta-wrap {
+      display: none;
+      text-align: center;
+      margin-top: 28px;
+    }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 640px) {
       .header { padding: 0 20px; }
@@ -460,6 +705,9 @@
       .savings-grid { grid-template-columns: 1fr; gap: 1px; }
       .cta-features { flex-direction: column; align-items: center; gap: 10px; }
       .container { padding: 0 20px; }
+      .calc-results { grid-template-columns: 1fr; }
+      .calc-input-wrap { flex-direction: column; align-items: stretch; }
+      .calc-btn { text-align: center; }
     }
   </style>
 </head>
@@ -490,7 +738,7 @@
 
   <!-- INSIGHTS -->
   <div class="container">
-    <section class="insights-section">
+    <section class="insights-section fade-in">
       <div class="section-label">I punti chiave</div>
       <h2 class="section-title">Cosa trasforma la gestione energetica</h2>
       <div class="divider-line"></div>
@@ -524,8 +772,107 @@
     </section>
   </div>
 
+  <!-- INDICATORI RAP -->
+  <section class="rap-section">
+    <div class="container">
+      <div class="section-label">Esempio di output reale</div>
+      <h2 class="section-title">Cosa contiene il tuo RAP</h2>
+      <div class="divider-line"></div>
+      <p class="section-intro" style="color:rgba(255,255,255,0.55);">Questi sono gli indicatori che un'azienda manifatturiera ha ricevuto dopo l'analisi. Il tuo RAP avrà i tuoi numeri.</p>
+
+      <div class="rap-kpi-grid">
+        <div class="rap-kpi">
+          <div class="rap-kpi-value" data-target="1147840" data-suffix=" kWh">0</div>
+          <div class="rap-kpi-label">consumi<br>potenzialmente evitabili</div>
+          <div class="rap-kpi-sub">in un anno di attività</div>
+        </div>
+        <div class="rap-kpi">
+          <div class="rap-kpi-value accent" data-target="34" data-approx="true" data-suffix="%">0%</div>
+          <div class="rap-kpi-label">Potenziale riduzione<br>consumi annui</div>
+          <div class="rap-kpi-sub">rispetto ai consumi attuali</div>
+        </div>
+        <div class="rap-kpi">
+          <div class="rap-kpi-value accent2" data-target="160704" data-prefix="€ ">0</div>
+          <div class="rap-kpi-label">Potenziale risparmio<br>economico annuo</div>
+          <div class="rap-kpi-sub">al costo imponibile di 0,14 €/kWh</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="rap-note">Potenziali benefici ambientali associati al risparmio</p>
+    <div class="env-strip">
+      <div class="env-item">
+        <div class="env-value">-213,97 tep</div>
+        <div class="env-label">Tonnellate equivalente petrolio risparmiate</div>
+      </div>
+      <div class="env-item">
+        <div class="env-value">-526,34 t</div>
+        <div class="env-label">Tonnellate CO₂ risparmiate</div>
+      </div>
+      <div class="env-item">
+        <div class="env-value">+27.000</div>
+        <div class="env-label">Alberi equivalenti al risparmio di CO₂</div>
+      </div>
+      <div class="env-item">
+        <div class="env-value">-500 auto</div>
+        <div class="env-label">Auto tolte dalla circolazione per un anno</div>
+      </div>
+    </div>
+
+    <div class="inline-cta" style="background:var(--dark); padding: 32px 0 48px;">
+      <a class="btn-cta-inline" href="mailto:f.delbuono@vargroup.it?subject=Richiesta%20RAP%20%E2%80%94%20Report%20di%20Analisi%20Preventiva&body=Buongiorno%20Francesco%2C%0A%0Asono%20interessato%20al%20Report%20di%20Analisi%20Preventiva.%20Mi%20manda%20cortesemente%20le%20istruzioni%3F%0A%0AGrazie">Ottieni il RAP gratuito →</a>
+    </div>
+  </section>
+
+  <!-- CALCOLATORE -->
+  <section class="calc-section fade-in">
+    <div class="container">
+      <div class="section-label">Calcolatore</div>
+      <h2 class="section-title">Quanto potresti risparmiare?</h2>
+      <div class="divider-line"></div>
+      <p class="section-intro">Inserisci la tua spesa energetica annua e scopri il risparmio potenziale nei tre scenari.</p>
+
+      <div class="calc-box">
+        <div class="calc-label-input">Spesa energetica annua (€)</div>
+        <div class="calc-input-wrap">
+          <input class="calc-input" id="spesa" type="text" placeholder="es. 250.000"
+                 inputmode="numeric"
+                 oninput="this.value=this.value.replace(/[^0-9.]/g,'')"
+                 onkeydown="if(event.key==='Enter') calcSavings()" />
+          <button class="calc-btn" onclick="calcSavings()">Calcola →</button>
+        </div>
+        <p class="calc-hint">Soglia minima consigliata: €100.000/anno</p>
+
+        <div class="calc-results" id="calc-results">
+          <div class="calc-result-box active-7">
+            <div class="calc-pct">Scenario 1 · -7%</div>
+            <div class="calc-saving" id="save7">—</div>
+            <div class="calc-scenario">Uso consapevole dell'energia,<br>senza investimenti</div>
+          </div>
+          <div class="calc-result-box active-10">
+            <div class="calc-pct">Scenario 2 · -10%</div>
+            <div class="calc-saving" id="save10">—</div>
+            <div class="calc-scenario">Corretta manutenzione<br>degli impianti</div>
+          </div>
+          <div class="calc-result-box active-20">
+            <div class="calc-pct">Scenario 3 · -20%</div>
+            <div class="calc-saving" id="save20">—</div>
+            <div class="calc-scenario">Interventi mirati<br>all'efficienza energetica</div>
+          </div>
+        </div>
+
+        <div class="calc-cta-wrap" id="calc-cta">
+          <a class="btn-cta-inline" style="margin-top:0;"
+             href="mailto:f.delbuono@vargroup.it?subject=Richiesta%20RAP%20%E2%80%94%20Report%20di%20Analisi%20Preventiva&body=Buongiorno%20Francesco%2C%0A%0Asono%20interessato%20al%20Report%20di%20Analisi%20Preventiva.%20Mi%20manda%20cortesemente%20le%20istruzioni%3F%0A%0AGrazie">
+            Ottieni il RAP gratuito per verificare questi numeri →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- SAVINGS NUMBERS -->
-  <section class="savings-section">
+  <section class="savings-section fade-in">
     <div class="container">
       <div class="section-label">I numeri del risparmio</div>
       <h2 class="section-title">Cosa ottengono le aziende che monitorano l'energia</h2>
@@ -554,7 +901,7 @@
 
   <!-- HOW IT WORKS -->
   <div class="container">
-    <section class="how-section">
+    <section class="how-section fade-in">
       <div class="section-label">Il metodo</div>
       <h2 class="section-title">Come funziona nella pratica</h2>
       <div class="divider-line"></div>
@@ -596,7 +943,7 @@
   </div>
 
   <!-- REFERENZE -->
-  <section class="ref-section">
+  <section class="ref-section fade-in">
     <div class="container">
       <div class="ref-label">Già adottato da</div>
       <div class="ref-tags">
@@ -639,6 +986,97 @@
     <p>Var Group SPA — <a href="https://www.vargroup.com">www.vargroup.com</a> &nbsp;·&nbsp; Sustain IT</p>
     <p style="margin-top:6px;">Via della Piovola, 138 — 50053 Empoli (FI) &nbsp;·&nbsp; Numero verde 800 646 543</p>
   </footer>
+
+  <script>
+    /* ── SCROLL FADE-IN ── */
+    const fadeEls = document.querySelectorAll('.fade-in');
+
+    if ('IntersectionObserver' in window) {
+      const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            fadeObserver.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+      fadeEls.forEach(el => fadeObserver.observe(el));
+
+      // Mostra subito gli elementi già visibili al caricamento
+      setTimeout(() => {
+        fadeEls.forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight) el.classList.add('visible');
+        });
+      }, 100);
+    } else {
+      // Fallback: mostra tutto subito se IntersectionObserver non è supportato
+      fadeEls.forEach(el => el.classList.add('visible'));
+    }
+
+    /* ── COUNTER ANIMATION ── */
+    function animateCounter(el) {
+      const target = parseInt(el.dataset.target);
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const isApprox = el.dataset.approx === 'true';
+      const duration = 1600;
+      const startTime = performance.now();
+
+      function fmt(n) {
+        return n.toLocaleString('it-IT');
+      }
+
+      function update(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(eased * target);
+        el.textContent = (isApprox ? '~' : '') + prefix + fmt(current) + suffix;
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    }
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting && e.target.dataset.target) {
+          animateCounter(e.target);
+          counterObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
+
+    /* ── CALCOLATORE ── */
+    function calcSavings() {
+      const raw = document.getElementById('spesa').value.replace(/\./g, '').replace(',', '.');
+      const input = parseFloat(raw);
+      if (isNaN(input) || input <= 0) {
+        document.getElementById('spesa').style.borderColor = '#ff4444';
+        setTimeout(() => document.getElementById('spesa').style.borderColor = '', 1200);
+        return;
+      }
+
+      const scenarios = [
+        { pct: 7,  id: 'save7'  },
+        { pct: 10, id: 'save10' },
+        { pct: 20, id: 'save20' },
+      ];
+
+      scenarios.forEach(s => {
+        const saving = Math.round(input * s.pct / 100);
+        document.getElementById(s.id).textContent = '€ ' + saving.toLocaleString('it-IT');
+      });
+
+      const results = document.getElementById('calc-results');
+      const cta = document.getElementById('calc-cta');
+      results.style.display = 'grid';
+      cta.style.display = 'block';
+
+      // Scroll smooth verso i risultati
+      results.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  </script>
 
 </body>
 </html>
